@@ -1,9 +1,14 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd" layout="1column">
     <body>
-       <referenceBlock name="page.title">
+       <referenceBlock name="page.main.title">
            <action method="setPageTitle">
                <argument name="pageTitle" xsi:type="string">Blog</argument>
            </action>
+       </referenceBlock>
+       <referenceBlock name="content">
+           <block name="blog"
+                  class="Magento\Framework\View\Element\Template"
+                  template="Inchoo_Blog::blog.phtml"  />
        </referenceBlock>
     </body>
 </page>

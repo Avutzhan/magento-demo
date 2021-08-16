@@ -27,6 +27,7 @@ atlassian*
 /lib/internal/flex/varien/.project
 /lib/internal/flex/varien/.settings
 /node_modules
+/vendor
 /.grunt
 /Gruntfile.js
 /package.json
@@ -70,3 +71,9 @@ atlassian*
 /generated/*
 !/generated/.htaccess
 .DS_Store
+/bin
+/dev
+/pub
+/setup
+/phpserver
+/.idea
