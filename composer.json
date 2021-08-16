@@ -6,6 +6,14 @@
         "OSL-3.0",
         "AFL-3.0"
     ],
+    "scripts": {
+        "post-install-cmd": [
+            "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
+        ],
+        "post-update-cmd": [
+            "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
+        ]
+    },
     "config": {
         "preferred-install": "dist",
         "sort-packages": true
@@ -42,7 +50,7 @@
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "friendsofphp/php-cs-fixer": "~2.16.0",
         "lusitanian/oauth": "~0.8.10",
-        "magento/magento-coding-standard": "*",
+        "magento/magento-coding-standard": "^6.0",
         "magento/magento2-functional-testing-framework": "^3.0",
         "pdepend/pdepend": "~2.7.1",
         "phpcompatibility/php-compatibility": "^9.3",
@@ -77,4 +85,3 @@
         "magento-force": "override"
     }
 }
-
