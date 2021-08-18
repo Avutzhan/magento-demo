@@ -3,3 +3,16 @@
     padding: 0;
     list-style: none none;
 }
+
+.blog-container .post-container {
+    border: 1px solid #ccc;
+}
+
+.blog-container .post-container .post-container__content {
+    padding: 20px;
+}
+
+.blog-container .post-container .post-image {
+    min-height: 200px;
+    background: #ccc;
+}

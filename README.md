@@ -22,5 +22,3 @@ Quick review of Magento 2
 7. ```sudo bin/magento module:disable Magento_TwoFactorAuth``` disable oauth
 8. ```sudo bin/magento c:c```
 9. ```sudo bin/magento setup:upgrade```
-
-54:25

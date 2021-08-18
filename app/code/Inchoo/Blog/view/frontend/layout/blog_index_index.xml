@@ -11,7 +11,11 @@
        <referenceBlock name="content">
            <block name="blog"
                   class="Magento\Framework\View\Element\Template"
-                  template="Inchoo_Blog::blog.phtml"  />
+                  template="Inchoo_Blog::blog.phtml">
+               <arguments>
+                   <argument name="viewModel" xsi:type="object">Inchoo\Blog\ViewModel\Blog</argument>
+               </arguments>
+           </block>
        </referenceBlock>
     </body>
 </page>
