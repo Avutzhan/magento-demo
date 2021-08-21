@@ -1,0 +1,18 @@
+{
+    "inchoo_blog_page": {
+        "column": {
+            "post_id": true,
+            "page_id": true,
+            "is_post": true,
+            "author": true,
+            "publish_date": true
+        },
+        "index": {
+            "INCHOO_BLOG_PAGE_PAGE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "INCHOO_BLOG_PAGE_PAGE_ID_CMS_PAGE_PAGE_ID": true
+        }
+    }
+}
