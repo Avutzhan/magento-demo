@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Inchoo\Blog\ViewModel;
 
 use Inchoo\Blog\Service\PostRepository;
+use Magento\Cms\Model\Page;
 use Magento\Framework\Serialize\SerializerInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Magento\Framework\UrlInterface;
@@ -47,6 +48,7 @@ class Blog implements ArgumentInterface
 
     /**
      * @return string
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function getPosts(): string
     {
@@ -55,16 +57,16 @@ class Blog implements ArgumentInterface
         $result = [];
 
         /**
-         * @var PageInterface $post
+         * @var PageInterface|Page $post
          */
         foreach ($postsSearchResult->getItems() as $post) {
             $result[] = [
                 "id" => $post->getId(),
                 "title" => $post->getTitle(),
-                "published_date" => $post->getCreationTime(),
+                "published_date" => $post->getData('publish_date'),
                 "url" => $this->url->getUrl($post->getIdentifier()),
                 "content" => $this->truncate(strip_tags($post->getContent()), 50),
-                "author" => "Avutzhan"
+                "author" => $post->getData('author')
             ];
         }
 

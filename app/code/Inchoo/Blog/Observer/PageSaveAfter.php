@@ -4,6 +4,7 @@ namespace Inchoo\Blog\Observer;
 
 use Inchoo\Blog\Api\Data\PostInterface;
 use Inchoo\Blog\Api\PostManagementInterface;
+use Inchoo\Blog\Api\PostRepositoryInterface;
 use Inchoo\Blog\Model\Post;
 use Magento\Cms\Api\Data\PageInterface;
 use Magento\Framework\Event\ObserverInterface;
@@ -20,12 +21,21 @@ class PageSaveAfter implements ObserverInterface
     private $postManagement;
 
     /**
-     * PageSaveAfter constructor.
-     * @param PostManagementInterface $postManagement
+     * @var PostRepositoryInterface
      */
-    public function __construct(PostManagementInterface $postManagement)
+    private $postRepository;
+
+    /**
+     * @param PostManagementInterface $postManagement
+     * @param PostRepositoryInterface $postRepository
+     */
+    public function __construct(
+        PostManagementInterface $postManagement,
+        PostRepositoryInterface $postRepository
+    )
     {
         $this->postManagement = $postManagement;
+        $this->postRepository = $postRepository;
     }
 
     /**
@@ -37,13 +47,14 @@ class PageSaveAfter implements ObserverInterface
         $entity = $observer->getEvent()->getObject();
         $data = $entity->getData();
 
-        /** @var  PostInterface|Post $post */
-        $post = $this->postManagement->getEmptyObject();
+        $post = $this->postRepository->getByPageId($entity->getId());
+        if (!$post->getId()) {
+            $post->setData('page_id', $data['page_id']);
+        }
 
         $post->setData('author', $data['author']);
         $post->setData('is_post', $data['is_post']);
         $post->setData('publish_date', $data['publish_date']);
-        $post->setData('page_id', $data['page_id']);
 
         $this->postManagement->save($post);
     }
