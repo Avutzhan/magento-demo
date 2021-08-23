@@ -33,3 +33,5 @@ Quick review of Magento 2
 ###Errors
 
 1. Error with edit content page. I was not able to edit page. There is classes in magento must be generated in generated folder if they are not generated then returns error. They can't be generated because of right of folder and user.
+
+3 22
