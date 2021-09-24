@@ -174,8 +174,13 @@ sudo phpenmod mbstring mcrypt xdebug
 # if returns error or warnings check this steps 
 # install PHP 7.1 and modules, enable modules
 # Install PHP common packages
-
 sudo service apache2 restart
+
+# XDEBUG_CONFIG is important for CLI debugging
+echo "
+export XDEBUG_CONFIG=\"idekey=PHPSTORM\"
+" | sudo tee -a /etc/bash.bashrc > /dev/null
+
 
 
 
