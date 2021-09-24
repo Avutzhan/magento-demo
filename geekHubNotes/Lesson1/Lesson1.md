@@ -181,10 +181,16 @@ echo "
 export XDEBUG_CONFIG=\"idekey=PHPSTORM\"
 " | sudo tee -a /etc/bash.bashrc > /dev/null
 
-
-
-
-
+# install phpmyadmin
+echo 'phpmyadmin phpmyadmin/dbconfig-install boolean true' | sudo defconf-set-selections
+echo 'phpmyadmin phpmyadmin/app-password-confirm password root' | sudo defconf-set-selections
+echo 'phpmyadmin phpmyadmin/mysql/admin-pass password root' | sudo defconf-set-selections
+echo 'phpmyadmin phpmyadmin/mysql/app-pass password root' | sudo defconf-set-selections
+echo 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2' | sudo defconf-set-selections
+sudo apt-get install phpmyadmin -y
+sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+echo "\$cfg['LoginCookieValidity'] = 84600;" | sudo tee -a /etc/phpmyadmin/config.inc.php > /dev/null
+sudo service apache2 restart
 
 
 
