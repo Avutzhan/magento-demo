@@ -94,7 +94,7 @@ sudo chown ${USER}:${USER} -R /misc
 # add repository with various php versions
 sudo add-apt-repository ppa:ondrej/php -y
 
-# install google chrom
+# install google chrome repository
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 sudo apt-get update
@@ -102,8 +102,8 @@ sudo apt-get upgrade -y
 sudo apt-get install net-tools -y 
 
 # other google chrome install
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
+#wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 # install sublime tex
 sudo snap install sublime-text --classic
@@ -197,6 +197,20 @@ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
 sudo apt-get install nodejs -y 
 sudo npm install -g grunt-cli
 
+# install google chrome
+sudo apt-get install google-chrome-stable -y 
+
+# install ClipIt clipboard manager
+sudo apt-get install clipit -y
+
+# install slack messenger
+sudo snap install slack --classic
+
+# install phpstorm eap 
+sudo snap install phpstorm --classic --edge
+
+# fix max file watches for phpstorm to be able to work with projects containing huge amount of 
+echo "fs.inotify.max_user_watches = 524288" | sudo tee -a /etc/sysctl.conf > /dev/null
  
 
 ```
