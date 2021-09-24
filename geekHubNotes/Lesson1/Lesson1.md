@@ -192,7 +192,12 @@ sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 echo "\$cfg['LoginCookieValidity'] = 84600;" | sudo tee -a /etc/phpmyadmin/config.inc.php > /dev/null
 sudo service apache2 restart
 
+# install Node Package Manager and grunt tasker
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash 
+sudo apt-get install nodejs -y 
+sudo npm install -g grunt-cli
 
+ 
 
 ```
 
