@@ -270,3 +270,43 @@ openssl x509 -req -days 3650 -in $DOMAIN.csr -signkey $DOMAIN.key -out $DOMAIN.c
 fail_if_error $?
 ```
 
+https://www.youtube.com/watch?v=EClSvEazoX8&list=PLHUtYy2KmWG1VC4vm8q3c_4U5X2CvOz5t
+
+https://www.google.com/search?q=bash+script+for+ubuntu+self-signed+certificate+ubuntu&sxsrf=AOaemvI-ViP16A5TPQIRXaVq4GDZkeMG7A%3A1632486309777&ei=pcNNYbbvLsnKrgSGm5GQBg&oq=bash+script+for+ubuntu+self-signed+certificate+ubuntu&gs_lcp=Cgdnd3Mtd2l6EAM6BwgAEEcQsAM6BwgjELACECc6BggAEA0QHjoICAAQDRAFEB5KBAhBGABQq98JWO2DCmCNiApoAnACeACAAe8BiAHFIpIBBjAuMTcuNpgBAKABAcgBCMABAQ&sclient=gws-wiz&ved=0ahUKEwj21eC0zZfzAhVJpYsKHYZNBGIQ4dUDCA4&uact=5
+
+https://gist.github.com/adamrunner/285746ca0f22b0f2e10192427e0b703c
+
+
+```shell
+<VirtualHost *:80>
+  ServerName magento-226.local
+  ServerAlias www.magento-226.local
+  DocumentRoot /misc/apps/magento-226/
+  ServerAdmin dautov92@list.ru
+  UseCanonicalName Off
+  ErrorLog /misc/apps/magento-226/var/log/error_http.log
+  <Directory /misc/apps/magento-226/>
+    AllowOverride All
+    Require all granted
+  </Directory>
+</VirtualHost>
+
+<VirtuakHost *:443>
+  ServerName magento-226.local
+  ServerAlias www.magento-226.local
+  DocumentRoot /misc/apps/magento-226/
+  ServerAdmin dautov92@list.ru
+  UseCanonicalName off
+  ErrorLog /misc/apps/magento-226/var/log/error_http.log
+  <Directory /misc/apps/magento-226/>
+    AllowOverride All
+    Require all granted
+  </Directory>
+  <IfModule ssl_module>
+    SSLEngine on
+    SSLCertificateFile /misc/share/ssl/magento-226.local/magento-226.local.crt
+    SSLCertificateKeyFile /misc/share/ssl/magento-226.local/magento-226.local.key
+    SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
+  </IfModule>
+</VirtuakHost>
+```
