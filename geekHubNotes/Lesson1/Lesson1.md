@@ -310,3 +310,8 @@ https://gist.github.com/adamrunner/285746ca0f22b0f2e10192427e0b703c
   </IfModule>
 </VirtuakHost>
 ```
+
+```
+mysql> grant all on magento_226.* to 'magento_226'@'localhost' identified by 'magento_226';
+Query OK, 0 rows affected, 1 warning (0,02 sec)
+```
