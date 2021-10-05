@@ -315,3 +315,29 @@ https://gist.github.com/adamrunner/285746ca0f22b0f2e10192427e0b703c
 mysql> grant all on magento_226.* to 'magento_226'@'localhost' identified by 'magento_226';
 Query OK, 0 rows affected, 1 warning (0,02 sec)
 ```
+
+install and configure xdebug
+find xdebug conf if you have not, then install xdebug
+```shell
+$ php --ini
+/etc/php/7.4/cli/conf.d/20-xdebug.ini,
+
+$ sudo nano /etc/php/7.4/cli/conf.d/20-xdebug.ini
+
+#paste this 
+zend_extension=/usr/lib/php/20190902/xdebug.so #find xdebug.so in your system
+xdebug.remote_autostart = 1
+xdebug.remote_enable = 1
+xdebug.remote_handler = dbgp
+xdebug.remote_host = 127.0.0.1
+xdebug.remote_log = /tmp/xdebug_remote.log
+xdebug.remote_mode = req
+xdebug.remote_port = 9000
+xdebug.profiler_enable = 1
+xdebug.idekey = PHPSTORM
+xdebug.default_enable = 1
+
+```
+go to phpstorm setting debug and uncheck break at first line in php scripts and 
+max simultaneous connections 
+
