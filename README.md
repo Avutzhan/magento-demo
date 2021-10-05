@@ -29,6 +29,7 @@ Quick review of Magento 2
 14. ```sudo chmod -R 777 var/ generated/ pub/static/ pub/media/``` rights
 15. ```sudo chown avutzhan:avutzhan generated/``` user of folder
 16. ```sudo bin/magento setup:di:compile``` recompile di if need
+17. ```sudo php bin/magento dev:urn-ca:generate .idea/misc.xml ``` когда xml пишем и нужен urn
 
 ###Errors
 
