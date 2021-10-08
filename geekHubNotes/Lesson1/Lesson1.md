@@ -341,3 +341,14 @@ xdebug.default_enable = 1
 go to phpstorm setting debug and uncheck break at first line in php scripts and 
 max simultaneous connections 
 
+there is xdebug 2 and 3 version above configs for xdebug 2 below for 3v. And for every php v 
+you must install php7.4-xdebug for example
+```
+zend_extension=xdebug.so
+xdebug.mode=debug
+xdebug.client_host=127.0.0.1
+xdebug.client_port=9003
+xdebug.log=/tmp/xdebug_remote.log
+xdebug.idekey=PHPSTORM
+
+```
